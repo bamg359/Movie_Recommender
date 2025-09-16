@@ -6,7 +6,7 @@ class Pelicula:
 
     #Contructor de  la clase
 
-    def __init__(self, id, titulo , anio, calificacion, duracion, descripcion , estado , director):
+    def __init__(self, id, titulo , anio, calificacion, duracion, descripcion , estado , director, categoria):
         self.__id = id  # _ => Protected  , __ => private
         self.__titulo = titulo
         self.__anio = anio
@@ -15,6 +15,8 @@ class Pelicula:
         self.__descripcion = descripcion
         self.__estado = estado
         self.__director = director
+        self.__categoria = categoria
+
 
 
 
@@ -34,7 +36,7 @@ class Pelicula:
         return self.__titulo
 
     @titulo.setter
-    def id(self, titulo):
+    def titulo(self, titulo):
         self.__titulo = titulo
 
     @property
@@ -84,6 +86,14 @@ class Pelicula:
     @director.setter
     def director(self, director):
         self.__director = director
+
+    @property
+    def categoria(self):
+        return self.__categoria
+
+    @categoria.setter
+    def categoria(self, categoria):
+        self.__categoria = categoria
 
 
     ##  Metodos propios
