@@ -2,12 +2,11 @@
 from domain.model.Categoria import Categoria
 from domain.service.Categoria_Service import Categoria_Service
 from persistence.Categoria_Repositorio import Categoria_Repositorio
+from web.App import App
 
 
 class TestCategoria:
 
-    categoria = Categoria(None, None)
-    categoria_service = Categoria_Service()
+    app = App()
 
-    categoria_service.crear_categoria()
-    categoria_service.mostrar_categorias()
+    app.run_app()

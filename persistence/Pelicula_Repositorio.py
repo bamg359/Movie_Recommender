@@ -13,7 +13,7 @@ class Pelicula_Repositorio:
 
 
     def crear_pelicula_DB(self):
-        query = "INSERT INTO "
+        query = "INSERT INTO  "
 
 
 
