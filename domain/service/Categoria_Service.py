@@ -39,5 +39,10 @@ class Categoria_Service:
         self.categoria_repositorio.eliminar_categoria(id_categoria)
 
 
+    def exportar_csv_categoria(self):
+        self.categoria_repositorio.exportar_csv_categoria()
+
+
+
 
 
