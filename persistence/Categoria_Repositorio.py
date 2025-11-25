@@ -1,6 +1,8 @@
 
 from persistence.Conexion import Conexion
 from domain.model.Categoria import Categoria
+from datetime import datetime
+import csv
 
 class Categoria_Repositorio:
 
@@ -46,4 +48,29 @@ class Categoria_Repositorio:
     def eliminar_categoria(self, categoria_id):
         query = "DELETE FROM categoria where id_categoria = %s"
         self.db.execute_query(query, (categoria_id,))
+
+
+    def exportar_csv_categoria(self,file_path = None):
+        query = "SELECT * FROM categoria"
+        result = self.db.execute_query(query)
+        if not file_path:
+            file_path = f"categoria_{datetime.now().strftime('%d-%m-%Y')}.csv"
+
+            column_names = [desc[0] for desc in self.db.execute_query(query)]
+
+            with open(file_path, mode='w', newline='', encoding="utf-8") as csvfile:
+                writer = csv.writer(csvfile)
+                writer.writerow(column_names)
+                writer.writerows(result)
+
+            print(f"Archivo exportado correctamente{file_path} ")
+            return file_path
+
+        else:
+            print("registros no encontrados")
+            return []
+
+
+
+
 
